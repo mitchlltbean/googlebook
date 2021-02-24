@@ -1,0 +1,15 @@
+.head {
+  font-size: 30px;
+  border-style: solid;
+  width: 800px;
+  height: 200px;
+}
+
+.headDiv {
+  display: flex;
+  align-content: center;
+  padding-top: 100px;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+}
