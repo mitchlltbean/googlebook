@@ -24,9 +24,9 @@ export default class Navbartop extends Component {
           </div>
           <div className="navbarright">
             <Link
-              to="/portfolio"
+              to="/Saved"
               className={
-                window.location.pathname === "/Portfolio"
+                window.location.pathname === "/Saved"
                   ? "nav-link active"
                   : "nav-link"
               }

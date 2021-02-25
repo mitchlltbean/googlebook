@@ -38,6 +38,13 @@ export default class Header extends Component {
       });
   };
 
+  viewSubmit = (e) => {
+    e.preventDefault();
+    console.log("hello");
+    // get our form data out of state
+    const { searchTerm } = this.state;
+  };
+
   render() {
     const { searchTerm } = this.state;
 
@@ -98,7 +105,15 @@ export default class Header extends Component {
                       __html: book.searchInfo.textSnippet,
                     }}
                   ></li>
-                  <form>
+                  {/* TODO:Create a sumbit input to send this book to DB to save */}
+                  <form onSubmit={this.onSubmit}>
+                    <input
+                      name="save"
+                      type="submit"
+                      value="Submit"
+                      style={{ width: "70px", height: "30px" }}
+                    ></input>
+                    {/* TODO:Create button that will take them too google books of book */}
                     <input
                       name="save"
                       type="submit"
