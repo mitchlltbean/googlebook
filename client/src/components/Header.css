@@ -13,3 +13,20 @@
   margin: auto;
   width: 50%;
 }
+
+.headRes {
+  border-style: solid;
+  width: 1000px;
+  margin-top: 100px;
+}
+
+.results {
+  border-style: solid;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 90%;
+}
+/* title
+authors
+description
+image */
