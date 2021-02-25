@@ -30,3 +30,9 @@
 authors
 description
 image */
+/* {book.searchInfo.textSnippet}
+Description:{book.searchInfo.textSnippet} */
+.ul {
+  border-style: solid;
+  font-size: 20px;
+}

@@ -72,9 +72,12 @@ export default class Header extends Component {
             hello
             <div className="results">
               {this.state.bookData.map((book) => (
-                <ul>
+                <ul className="ul">
                   {book.volumeInfo.imageLinks ? (
-                    <img src={book.volumeInfo.imageLinks.thumbnail}></img>
+                    <img
+                      src={book.volumeInfo.imageLinks.thumbnail}
+                      style={{ width: "75px" }}
+                    ></img>
                   ) : (
                     <p>no img</p>
                   )}
@@ -90,7 +93,19 @@ export default class Header extends Component {
                       <p>no author</p>
                     )}
                   </li>
-                  {/* <li>Description:{book.searchInfo}</li> */}
+                  <li
+                    dangerouslySetInnerHTML={{
+                      __html: book.searchInfo.textSnippet,
+                    }}
+                  ></li>
+                  <form>
+                    <input
+                      name="save"
+                      type="submit"
+                      value="Submit"
+                      style={{ width: "70px", height: "30px" }}
+                    ></input>
+                  </form>
                 </ul>
               ))}
             </div>
