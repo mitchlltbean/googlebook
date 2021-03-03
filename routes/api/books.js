@@ -4,7 +4,7 @@ const axios = require("axios");
 
 //www.googleapis.com/books/v1/volumes?q=search+terms &key=yourAPIKey
 
-//TODO: api call on axios to google book api
+//api call on axios to google book api
 router.post("/", (req, res) => {
   console.log(req.body, "@@@@@@@");
   axios
@@ -28,5 +28,50 @@ router.post("/", (req, res) => {
 //   .get(booksController.findById)
 //   .put(booksController.update)
 //   .delete(booksController.remove);
+
+//TODO: a getall route to the database to grab all saved books to be mapped and rendering to save page
+router.get("/getall", (req, res) => {
+  console.log(req.body, "@@@@@@@");
+  axios
+    .findAll()
+    .then(function (response) {
+      // console.log(response.data, "!!!!!!!!!!");
+      res.json(response.data);
+    })
+    .catch((err) => {
+      console.log(err, "!!!!!!!!");
+      res.status(500).json(err);
+    });
+});
+
+//TODO: a route for putting a book into the db for save
+router.get("/save", (req, res) => {
+  console.log(req.body, "@@@@@@@");
+  axios
+    .post()
+    .then(function (response) {
+      // console.log(response.data, "!!!!!!!!!!");
+      res.json(response.data);
+    })
+    .catch((err) => {
+      console.log(err, "!!!!!!!!");
+      res.status(500).json(err);
+    });
+});
+
+//TODO: create route to DB to delete entry based on id
+router.delete("/delete", (req, res) => {
+  console.log(req.body, "@@@@@@@");
+  axios
+    .delete()
+    .then(function (response) {
+      // console.log(response.data, "!!!!!!!!!!");
+      res.json(response.data);
+    })
+    .catch((err) => {
+      console.log(err, "!!!!!!!!");
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

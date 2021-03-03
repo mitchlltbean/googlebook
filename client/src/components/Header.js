@@ -38,12 +38,28 @@ export default class Header extends Component {
       });
   };
 
-  viewSubmit = (e) => {
+  //TODO: handle submit for button click to redirect view to google books
+  handleView = (e) => {
     e.preventDefault();
     console.log("hello");
-    // get our form data out of state
-    const { searchTerm } = this.state;
   };
+
+  //TODO: Create a handle function for saving a book to the DB with axios put
+  // onSavesubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("hello");
+
+  //   axios
+  //     .put()
+  //     .then(function (response) {
+  //       // console.log(response.data, "!!!!!!!!!!");
+  //       res.json(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err, "!!!!!!!!");
+  //       res.status(500).json(err);
+  //     });
+  // };
 
   render() {
     const { searchTerm } = this.state;
@@ -76,7 +92,7 @@ export default class Header extends Component {
             </form>
           </div>
           <div className="headRes">
-            hello
+            Search a Book
             <div className="results">
               {this.state.bookData.map((book) => (
                 <ul className="ul">
@@ -100,24 +116,20 @@ export default class Header extends Component {
                       <p>no author</p>
                     )}
                   </li>
-                  <li
-                    dangerouslySetInnerHTML={{
-                      __html: book.searchInfo.textSnippet,
-                    }}
-                  ></li>
-                  {/* TODO:Create a sumbit input to send this book to DB to save */}
+                  <li>Description:{book.volumeInfo.description}</li>
+                  {/* TODO:Create a sumbit input to send this book to DB to save with onClick event*/}
                   <form onSubmit={this.onSubmit}>
                     <input
                       name="save"
                       type="submit"
-                      value="Submit"
+                      value="save"
                       style={{ width: "70px", height: "30px" }}
                     ></input>
-                    {/* TODO:Create button that will take them too google books of book */}
+                    {/* TODO:Create button that will take them too google books of book with onClick event*/}
                     <input
                       name="save"
                       type="submit"
-                      value="Submit"
+                      value="view"
                       style={{ width: "70px", height: "30px" }}
                     ></input>
                   </form>
